@@ -15,4 +15,6 @@
     <string name="malang_jawa_timur">Malang, Jawa Timur</string>
     <string name="picture_of_user">Picture Of User</string>
     <string name="hello_blank_fragment">Hello Blank Fragment</string>
+    <string name="dashboard_picture">Dashboard Picture</string>
+    <string name="dashboard">Dashboard</string>
 </resources>

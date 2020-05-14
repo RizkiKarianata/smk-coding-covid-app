@@ -14,16 +14,36 @@
         android:layout_margin="16dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:text="Dashboard"
+        android:text="@string/dashboard"
         android:textColor="#FFFFFF"
         android:textSize="22sp" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_doctor"
-        android:gravity="center_horizontal"
+        android:layout_height="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/dashboard_picture"
+        android:src="@drawable/ic_doctor2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/bg_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </LinearLayout>
 
 </LinearLayout>
