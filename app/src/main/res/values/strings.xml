@@ -17,4 +17,10 @@
     <string name="hello_blank_fragment">Hello Blank Fragment</string>
     <string name="dashboard_picture">Dashboard Picture</string>
     <string name="dashboard">Dashboard</string>
+    <string name="pasien_positif">Pasien Positif</string>
+    <string name="pasien_sembuh">Pasien Sembuh</string>
+    <string name="pasien_meninggal">Pasien Meninggal</string>
+    <string name="_9800">9800</string>
+    <string name="_3871">3871</string>
+    <string name="_1200">1200</string>
 </resources>
