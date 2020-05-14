@@ -3,4 +3,7 @@
     <string name="smk_coding_online">SMK COding Online</string>
     <string name="covid_19">Covid-19</string>
     <string name="info_penyebaran_covid">Info Penyebaran Covid</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
