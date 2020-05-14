@@ -5,5 +5,13 @@
     <string name="info_penyebaran_covid">Info Penyebaran Covid</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="moehammad_rizki_karianata">Moehammad Rizki Karianata</string>
+    <string name="telepon">Telepon</string>
+    <string name="_0895395333224">0895395333224</string>
+    <string name="email">Email</string>
+    <string name="natarizky884_gmail_com">natarizky884@gmail.com</string>
+    <string name="rizki_karianata">Rizki Karianata</string>
+    <string name="malang_jawa_timur">Malang, Jawa Timur</string>
+    <string name="picture_of_user">Picture Of User</string>
 </resources>
