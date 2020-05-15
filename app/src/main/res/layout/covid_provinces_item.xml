@@ -27,6 +27,25 @@
                 android:layout_height="wrap_content"
                 android:text="Nama Provinsi"
                 android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/txtPositif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Positif"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txtMeninggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meninggal"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/txtSembuh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sembuh"
+                android:textSize="15sp"/>
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
