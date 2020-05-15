@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ProvincesService {
-    @GET( "indonesia/provinsi" )
+    @GET( "/indonesia/provinsi" )
     fun getProvinces(): Call<List<CovidProvincesItem>>
 }
