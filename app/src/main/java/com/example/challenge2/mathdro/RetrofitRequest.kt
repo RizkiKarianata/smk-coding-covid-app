@@ -1,4 +1,4 @@
-package com.example.challenge2.data
+package com.example.challenge2.mathdro
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -19,7 +19,7 @@ fun httpClient(): OkHttpClient {
 inline fun <reified T> apiRequest(okHttpClient: OkHttpClient): T {
     val gson = GsonBuilder().create()
     val retrofit = Retrofit.Builder()
-        .baseUrl( "https://api.kawalcorona.com/" )
+        .baseUrl( "https://covid19.mathdro.id/api/" )
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
