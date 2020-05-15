@@ -1,6 +1,5 @@
 package com.example.challenge2
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +23,6 @@ List<CovidPositif>, private val listener : (CovidPositif)-> Unit) :
     }
     class ViewHolder(val context : Context, override val containerView : View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
-        @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidPositif, listener: (CovidPositif) -> Unit) {
             txtPositifCov.text = item.value
             containerView.setOnClickListener { listener(item) }
