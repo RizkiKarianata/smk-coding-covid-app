@@ -11,7 +11,7 @@ import android.view.WindowManager
 
 class MainActivity : AppCompatActivity() {
 
-    val menuTeks = arrayOf("Country", "Provinces", "Hospital", "Profile")
+    val menuTeks = arrayOf("Home", "Country", "Provinces", "Profile")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
