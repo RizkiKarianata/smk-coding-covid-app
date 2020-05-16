@@ -44,21 +44,21 @@ class HomeFragment : Fragment() {
         val httpClient = httpClient()
         val apiRequest = apiRequest<PositifService>(httpClient)
         val call = apiRequest.getPositif()
-        call.enqueue(object : Callback<List<CovidPositif>> {
-            override fun onFailure(call: Call<List<CovidPositif>>, t: Throwable) {
+        call.enqueue(object : Callback<List<CovidPositifItem>> {
+            override fun onFailure(call: Call<List<CovidPositifItem>>, t: Throwable) {
                 dismissLoading(swipeRefreshLayout)
             }
 
             override fun onResponse(
-                call: Call<List<CovidCountryItem>>, response:
-                Response<List<CovidCountryItem>>
+                call: Call<List<CovidPositifItem>>, response:
+                Response<List<CovidPositifItem>>
             ) {
                 dismissLoading(swipeRefreshLayout)
                 when {
                     response.isSuccessful ->
                         when {
                             response.body()?.size != 0 ->
-                                tampilCovidCountry(response.body()!!)
+                                tampilCovidPositif(response.body()!!)
                             else -> {
                                 tampilToast(context!!, "Berhasil")
                             }
@@ -70,11 +70,11 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    private fun tampilCovidCountry(covCou: List<CovidCountryItem>) {
-        listCovidCountry.layoutManager = LinearLayoutManager(context)
-        listCovidCountry.adapter = CovidCountryAdapter(context!!, covCou) {
-            val covidCountry = it
-            tampilToast(context!!, covidCountry.attributes.countryRegion)
+    private fun tampilCovidPositif(covPos: List<CovidPositifItem>) {
+        listCovidPositif.layoutManager = LinearLayoutManager(context)
+        listCovidPositif.adapter = CovidPositifAdapter(context!!, covPos) {
+            val covidPositif = it
+            tampilToast(context!!, covidPositif.name)
         }
     }
     override fun onDestroy() {
