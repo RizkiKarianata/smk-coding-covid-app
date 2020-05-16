@@ -50,15 +50,15 @@ class HomeFragment : Fragment() {
             }
 
             override fun onResponse(
-                call: Call<List<CovidPositif>>, response:
-                Response<List<CovidPositif>>
+                call: Call<List<CovidCountryItem>>, response:
+                Response<List<CovidCountryItem>>
             ) {
                 dismissLoading(swipeRefreshLayout)
                 when {
                     response.isSuccessful ->
                         when {
                             response.body()?.size != 0 ->
-                                tampilCovidPositif(response.body()!!)
+                                tampilCovidCountry(response.body()!!)
                             else -> {
                                 tampilToast(context!!, "Berhasil")
                             }
@@ -70,11 +70,11 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    private fun tampilCovidPositif(covPos: List<CovidPositif>) {
-        listCovidPositif.layoutManager = LinearLayoutManager(context)
-        listCovidPositif.adapter = CovidPositifAdapter(context!!, covPos) {
-            val covidPositif = it
-            tampilToast(context!!, covidPositif.value)
+    private fun tampilCovidCountry(covCou: List<CovidCountryItem>) {
+        listCovidCountry.layoutManager = LinearLayoutManager(context)
+        listCovidCountry.adapter = CovidCountryAdapter(context!!, covCou) {
+            val covidCountry = it
+            tampilToast(context!!, covidCountry.attributes.countryRegion)
         }
     }
     override fun onDestroy() {
