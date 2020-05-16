@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.annotation.Nullable
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challenge2.kawalcorona.PositifService
 import com.example.challenge2.kawalcorona.apiRequest
 import com.example.challenge2.kawalcorona.httpClient
+import com.example.challenge2.util.dismissLoading
+import com.example.challenge2.util.showLoading
 import com.example.challenge2.util.tampilToast
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -35,17 +40,20 @@ class HomeFragment : Fragment() {
         callApiGetCovidPositif()
     }
     private fun callApiGetCovidPositif() {
+        showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
         val apiRequest = apiRequest<PositifService>(httpClient)
         val call = apiRequest.getPositif()
         call.enqueue(object : Callback<List<CovidPositif>> {
             override fun onFailure(call: Call<List<CovidPositif>>, t: Throwable) {
+                dismissLoading(swipeRefreshLayout)
             }
 
             override fun onResponse(
                 call: Call<List<CovidPositif>>, response:
                 Response<List<CovidPositif>>
             ) {
+                dismissLoading(swipeRefreshLayout)
                 when {
                     response.isSuccessful ->
                         when {
@@ -63,9 +71,9 @@ class HomeFragment : Fragment() {
         })
     }
     private fun tampilCovidPositif(covPos: List<CovidPositif>) {
-        CovidPositifAdapter(context!!, covPos) {
+        listCovidPositif.layoutManager = LinearLayoutManager(context)
+        listCovidPositif.adapter = CovidPositifAdapter(context!!, covPos) {
             val covidPositif = it
-            txtPositifCov.text = covidPositif.value
             tampilToast(context!!, covidPositif.value)
         }
     }
