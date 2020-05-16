@@ -8,14 +8,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
-    private val JUMLAH_MENU = 3
+    private val JUMLAH_MENU = 4
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> { return CountryFragment() }
-            1 -> { return ProvincesFragment() }
-            2 -> { return ProfileFragment() }
+            0 -> { return HospitalFragment() }
+            1 -> { return CountryFragment() }
+            2 -> { return ProvincesFragment() }
+            3 -> { return ProfileFragment() }
             else -> {
-                return CountryFragment()
+                return HospitalFragment()
             }
         }
     }
