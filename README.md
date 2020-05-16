@@ -7,6 +7,9 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * Configure Android Studio
 * Open Android Studio
 
+# Screenshoot Aplication
+![Alt text](app/src/main/res/drawable/Screenshoot2.jpg)
+
 # Documentation & Resources
 * [Android Studio Documentation](https://developer.android.com/docs)
 * [Kotlin Reference](https://kotlinlang.org/docs/reference/)
