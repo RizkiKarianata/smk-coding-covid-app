@@ -11,8 +11,8 @@ fun httpClient(): OkHttpClient {
     val logInterceptor = HttpLoggingInterceptor()
     logInterceptor.level = HttpLoggingInterceptor.Level.BODY
     val builder = OkHttpClient.Builder()
-    builder.readTimeout(60, TimeUnit.SECONDS )
-    builder.connectTimeout(60, TimeUnit.SECONDS )
+    builder.readTimeout(15, TimeUnit.SECONDS )
+    builder.connectTimeout(15, TimeUnit.SECONDS )
     builder.addInterceptor(logInterceptor)
     return builder.build()
 }

@@ -11,9 +11,9 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     private val JUMLAH_MENU = 4
     override fun createFragment(position: Int): Fragment {
         when (position) {
-            0 -> { return HospitalFragment() }
-            1 -> { return CountryFragment() }
-            2 -> { return ProvincesFragment() }
+            0 -> { return CountryFragment() }
+            1 -> { return ProvincesFragment() }
+            2 -> { return HospitalFragment() }
             3 -> { return ProfileFragment() }
             else -> {
                 return HospitalFragment()
