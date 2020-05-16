@@ -7,13 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.Nullable
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challenge2.kawalcorona.PositifService
 import com.example.challenge2.kawalcorona.apiRequest
 import com.example.challenge2.kawalcorona.httpClient
-import com.example.challenge2.util.dismissLoading
-import com.example.challenge2.util.showLoading
 import com.example.challenge2.util.tampilToast
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -23,6 +19,8 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
+    private lateinit var txtPositifCo:TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -30,6 +28,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val txtCov = inflater.inflate(R.layout.fragment_home, container, false )
+        txtPositifCo = txtCov.findViewById(R.id.txtPositifCov)
+        txtPositifCo.text = "JANCOK"
         return inflater.inflate(R.layout.fragment_home, container, false )
     }
     override fun onViewCreated(
@@ -40,20 +41,17 @@ class HomeFragment : Fragment() {
         callApiGetCovidPositif()
     }
     private fun callApiGetCovidPositif() {
-        showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
         val apiRequest = apiRequest<PositifService>(httpClient)
         val call = apiRequest.getPositif()
-        call.enqueue(object : Callback<List<CovidPositifItem>> {
-            override fun onFailure(call: Call<List<CovidPositifItem>>, t: Throwable) {
-                dismissLoading(swipeRefreshLayout)
+        call.enqueue(object : Callback<List<CovidPositif>> {
+            override fun onFailure(call: Call<List<CovidPositif>>, t: Throwable) {
             }
 
             override fun onResponse(
-                call: Call<List<CovidPositifItem>>, response:
-                Response<List<CovidPositifItem>>
+                call: Call<List<CovidPositif>>, response:
+                Response<List<CovidPositif>>
             ) {
-                dismissLoading(swipeRefreshLayout)
                 when {
                     response.isSuccessful ->
                         when {
@@ -70,11 +68,11 @@ class HomeFragment : Fragment() {
             }
         })
     }
-    private fun tampilCovidPositif(covPos: List<CovidPositifItem>) {
-        listCovidPositif.layoutManager = LinearLayoutManager(context)
-        listCovidPositif.adapter = CovidPositifAdapter(context!!, covPos) {
+    private fun tampilCovidPositif(covPos: List<CovidPositif>) {
+        CovidPositifAdapter(context!!, covPos) {
             val covidPositif = it
-            tampilToast(context!!, covidPositif.name)
+            txtPositifCo.text = covidPositif.value
+            tampilToast(context!!, covidPositif.value)
         }
     }
     override fun onDestroy() {

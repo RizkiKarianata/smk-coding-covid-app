@@ -1,6 +1,5 @@
 package com.example.challenge2
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,13 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.covid_positif_item.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class CovidPositifAdapter(private val context : Context, private val items :
-List<CovidPositifItem>, private val listener : (CovidPositifItem)-> Unit) :
+List<CovidPositif>, private val listener : (CovidPositif)-> Unit) :
     RecyclerView.Adapter<CovidPositifAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(context, LayoutInflater.from(context).inflate(R.layout.covid_positif_item,
+        ViewHolder(context, LayoutInflater.from(context).inflate(R.layout.fragment_home,
             parent, false))
     override fun getItemCount(): Int {
         return items.size
@@ -24,11 +23,8 @@ List<CovidPositifItem>, private val listener : (CovidPositifItem)-> Unit) :
     }
     class ViewHolder(val context : Context, override val containerView : View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
-        @SuppressLint("SetTextI18n")
-        fun bindItem(item: CovidPositifItem, listener: (CovidPositifItem) -> Unit) {
+        fun bindItem(item: CovidPositif, listener: (CovidPositif) -> Unit) {
             txtPositifCov.text = item.value
-            txtHeading.text = "Positif"
-            Glide.with(context).load(R.drawable.ic_bacteria2).into(imgUser)
             containerView.setOnClickListener { listener(item) }
         }
     }
