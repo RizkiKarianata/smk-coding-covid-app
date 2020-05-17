@@ -12,7 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".LoginActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:noHistory="true"
+            android:theme="@style/RegisterTheme"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:noHistory="true"
+            android:theme="@style/LoginTheme"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <activity
             android:name=".SplashScreenActivity"
             android:noHistory="true"
