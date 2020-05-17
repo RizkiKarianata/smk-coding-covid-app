@@ -101,6 +101,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/tv_fullname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:fontFamily="sans-serif-light"
@@ -130,6 +131,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/tv_telephone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:fontFamily="sans-serif-light"
@@ -159,6 +161,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/tv_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:fontFamily="sans-serif-light"
