@@ -96,7 +96,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/nama_lengkap"
+                    android:text="@string/full_name"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 
@@ -125,7 +125,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/telepon"
+                    android:text="@string/telephone"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 
@@ -154,7 +154,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/email"
+                    android:text="@string/e_mail"
                     android:textColor="@color/headings"
                     android:textSize="13sp" />
 

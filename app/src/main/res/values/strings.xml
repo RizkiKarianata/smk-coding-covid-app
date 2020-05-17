@@ -34,4 +34,7 @@
     <string name="recovered">Recovered</string>
     <string name="confirmed">Confirmed</string>
     <string name="death">Death</string>
+    <string name="full_name">Full Name</string>
+    <string name="telephone">Telephone</string>
+    <string name="e_mail">E-mail</string>
 </resources>
