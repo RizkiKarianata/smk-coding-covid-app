@@ -8,7 +8,7 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * Open Android Studio
 
 # Screenshoot Aplication
-![Alt text](app/src/main/res/drawable/Screenshoot2.jpg)
+![Alt text](app/src/main/res/drawable/screenshoot2.jpg)
 
 # Documentation & Resources
 * [Android Studio Documentation](https://developer.android.com/docs)
