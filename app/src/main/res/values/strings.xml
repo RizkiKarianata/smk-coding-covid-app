@@ -2,39 +2,6 @@
     <string name="app_name">Covid-19</string>
     <string name="smk_coding_online">SMK Coding Online</string>
     <string name="covid_19">Covid-19</string>
-    <string name="info_penyebaran_covid">Info Penyebaran Covid</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="nama_lengkap">Nama Lengkap</string>
-    <string name="moehammad_rizki_karianata">Moehammad Rizki Karianata</string>
-    <string name="telepon">Telepon</string>
-    <string name="_0895395333224">0895395333224</string>
-    <string name="email">Email</string>
-    <string name="natarizky884_gmail_com">natarizky884@gmail.com</string>
-    <string name="rizki_karianata">Rizki Karianata</string>
-    <string name="malang_jawa_timur">Malang, Jawa Timur</string>
-    <string name="picture_of_user">Picture Of User</string>
-    <string name="hello_blank_fragment">Hello Blank Fragment</string>
-    <string name="dashboard_picture">Dashboard Picture</string>
-    <string name="dashboard">Dashboard</string>
-    <string name="pasien_positif">Pasien Positif</string>
-    <string name="pasien_sembuh">Pasien Sembuh</string>
-    <string name="pasien_meninggal">Pasien Meninggal</string>
-    <string name="_9800">9800</string>
-    <string name="_3871">3871</string>
-    <string name="_1200">1200</string>
-    <string name="nama_provinsi_cou">Nama Provinsi</string>
-    <string name="positif_cou">Positif</string>
-    <string name="meninggal_cou">Meninggal</string>
-    <string name="sembuh_cou">Sembuh</string>
-    <string name="nama_provinsi">Nama Provinsi</string>
-    <string name="positif">Positif</string>
-    <string name="meninggal">Meninggal</string>
-    <string name="sembuh">Sembuh</string>
-    <string name="recovered">Recovered</string>
-    <string name="confirmed">Confirmed</string>
-    <string name="death">Death</string>
-    <string name="full_name">Full Name</string>
-    <string name="telephone">Telephone</string>
-    <string name="e_mail">E-mail</string>
 </resources>
