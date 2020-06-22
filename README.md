@@ -1,5 +1,5 @@
 # Challenge 2 - 3
-Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobile yang menggunakan Android Kotlin. Sekarang sudah memasuki Challenge 3, project ini akan menjadi lanjutan untuk project selanjutnya. Maka dari itu akan ada perubahan pada aplikasi Covid-19.
+Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobile yang menggunakan Android Kotlin. Sekarang sudah memasuki Challenge 3, project ini akan menjadi lanjutan dari project sebelumnya. Maka dari itu akan ada perubahan pada aplikasi Covid-19.
 
 # Usage
 * Install Java SE Development Kit
