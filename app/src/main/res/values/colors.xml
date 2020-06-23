@@ -3,6 +3,7 @@
     <color name="colorPrimary">#FECE2F</color>
     <color name="colorPrimaryDark">#FECE2F</color>
     <color name="colorAccent">#4682B4</color>
+    <color name="colorWhite">#ffffff</color>
 
     <color name="address">#2F7092</color>
     <color name="followers">#0D5D98</color>
