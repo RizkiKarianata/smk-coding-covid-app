@@ -5,12 +5,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.example.challenge2.R
+import android.widget.TextView
+import androidx.annotation.Nullable
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.challenge2.adapter.NewsAdapter
+import com.example.challenge2.api.NewsService
+import com.example.challenge2.api.apiRequest
+import com.example.challenge2.api.httpClient
+import com.example.challenge2.item.Article
+import com.example.challenge2.util.dismissLoading
+import com.example.challenge2.util.showLoading
+import com.example.challenge2.util.tampilToast
+import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.fragment_news.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-/**
- * A simple [Fragment] subclass.
- */
 class NewsFragment : Fragment() {
 
     override fun onCreateView(
@@ -20,5 +33,53 @@ class NewsFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
+    override fun onViewCreated(
+        view: View,
+        @Nullable savedInstanceState: Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+        callApiGetNews()
+    }
+    private fun callApiGetNews() {
+        showLoading(context!!, swipeRefreshLayout)
+        val httpClient = httpClient()
+        val apiRequest = apiRequest<NewsService>(httpClient, "http://newsapi.org/")
+        val call = apiRequest.getNews()
+        call.enqueue(object : Callback<List<Article>> {
+            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
+                dismissLoading(swipeRefreshLayout)
+            }
 
+            override fun onResponse(
+                call: Call<List<Article>>, response:
+                Response<List<Article>>
+            ) {
+                dismissLoading(swipeRefreshLayout)
+                when {
+                    response.isSuccessful ->
+                        when {
+                            response.body()?.size != 0 ->
+                                tampilNews(response.body()!!)
+                            else -> {
+                                tampilToast(context!!, "Berhasil")
+                            }
+                        }
+                    else -> {
+                        tampilToast(context!!, "Gagal")
+                    }
+                }
+            }
+        })
+    }
+    private fun tampilNews(newsArt: List<Article>) {
+        listNews.layoutManager = LinearLayoutManager(context)
+        listNews.adapter = NewsAdapter(context!!, newsArt) {
+            val newsArticle = it
+            tampilToast(context!!, newsArticle.title)
+        }
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        this.clearFindViewByIdCache()
+    }
 }
