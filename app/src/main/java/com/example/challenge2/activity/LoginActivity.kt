@@ -7,7 +7,6 @@ import com.example.challenge2.R
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
-import com.example.challenge2.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

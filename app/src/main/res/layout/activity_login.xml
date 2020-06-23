@@ -46,7 +46,7 @@
             android:layout_marginBottom="10dp"
             android:hint="@string/nama_pengguna"
             android:autofillHints=""
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/passwordLog"
