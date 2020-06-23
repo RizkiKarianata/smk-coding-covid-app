@@ -17,13 +17,13 @@
             android:name=".activity.RegisterActivity"
             android:noHistory="true"
             android:theme="@style/RegisterTheme"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity
             android:name=".activity.LoginActivity"
             android:noHistory="true"
             android:theme="@style/LoginTheme"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".activity.SplashScreenActivity"
             android:noHistory="true"

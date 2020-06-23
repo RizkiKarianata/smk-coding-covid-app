@@ -29,10 +29,7 @@ List<CovidProvincesItem>, private val listener : (CovidProvincesItem)-> Unit) :
         @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidProvincesItem, listener: (CovidProvincesItem) -> Unit) {
             txtProvinces.text = item.attributes.provinsi
-            txtPositif.text = "Confirmed : " + item.attributes.kasusPosi.toString()
-            txtMeninggal.text = "Deaths : " + item.attributes.kasusMeni.toString()
-            txtSembuh.text = "Recovered : " + item.attributes.kasusSemb.toString()
-            Glide.with(context).load(R.drawable.ic_bacteria2).into(imgUser)
+            txtKode.text = "Info Selengkapnya"
             containerView.setOnClickListener { listener(item) }
         }
     }

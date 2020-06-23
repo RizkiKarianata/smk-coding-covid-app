@@ -47,7 +47,7 @@
                             tools:ignore="RelativeOverlap" />
 
                         <TextView
-                            android:id="@+id/txtLastUpdate"
+                            android:id="@+id/txtKode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/txtProvinces"

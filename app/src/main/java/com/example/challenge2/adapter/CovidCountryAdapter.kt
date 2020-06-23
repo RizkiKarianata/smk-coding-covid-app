@@ -30,7 +30,7 @@ List<CovidCountryItem>, private val listener : (CovidCountryItem)-> Unit) :
         @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidCountryItem, listener: (CovidCountryItem) -> Unit) {
             txtCountryRegion.text = item.attributes.countryRegion
-            txtLastUpdate.text = item.attributes.lastUpdate.toString()
+            txtLastUpdate.text = "Info Selengkapnya"
             containerView.setOnClickListener { listener(item) }
         }
     }
