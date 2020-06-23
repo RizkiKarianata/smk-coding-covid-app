@@ -11,5 +11,7 @@
     </style>
     <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+    <style name="RegisterTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
 
 </resources>

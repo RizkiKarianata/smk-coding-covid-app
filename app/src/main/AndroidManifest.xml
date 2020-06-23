@@ -14,13 +14,18 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".activity.RegisterActivity"
+            android:noHistory="true"
+            android:theme="@style/RegisterTheme"
+            android:windowSoftInputMode="adjustResize"></activity>
+
+        <activity
+            android:name=".activity.LoginActivity"
             android:noHistory="true"
             android:theme="@style/LoginTheme"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".Activity.SplashScreenActivity"
+            android:name=".activity.SplashScreenActivity"
             android:noHistory="true"
             android:theme="@style/SplashTheme">
             <intent-filter>

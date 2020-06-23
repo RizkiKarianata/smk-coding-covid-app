@@ -1,4 +1,4 @@
-package com.example.challenge2.Activity
+package com.example.challenge2.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.example.challenge2.R
 import android.view.Window
 import android.view.WindowManager
-import com.example.challenge2.MainActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -21,7 +20,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 try {
                     sleep(5000)
 
-                    val intent = Intent(baseContext, MainActivity::class.java)
+                    val intent = Intent(baseContext, LoginActivity::class.java)
                     startActivity(intent)
                 } catch (e: Exception) {
                     e.printStackTrace()

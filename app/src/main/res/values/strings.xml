@@ -3,4 +3,22 @@
     <string name="info_penyebaran_covid">Info Penyebaran Covid</string>
     <string name="covid_19">Covid-19</string>
     <string name="smk_coding_online">SMK Coding Online</string>
+    <string name="info_covid_19">Info Covid-19</string>
+    <string name="smk_coding_onlinee">SMK Coding Online</string>
+    <string name="nama_pengguna">Nama Pengguna</string>
+    <string name="kata_sandi">Kata Sandi</string>
+    <string name="daftar">Daftar</string>
+    <string name="masuk">Masuk</string>
+    <string name="google">Google</string>
+    <string name="logo_image">Logo Image</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="temukan_info_menarik_di_covid_19">Temukan info menarik di Covid-19</string>
+    <string name="pendaftaran_akun">Pendaftaran Akun</string>
+    <string name="nama_penggunaa">Nama Pengguna</string>
+    <string name="alamat_email">Alamat Email</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="alamat">Alamat</string>
+    <string name="kata_sandii">Kata Sandi</string>
+    <string name="daftarr">Daftar</string>
+    <string name="kembali">Kembali</string>
 </resources>
