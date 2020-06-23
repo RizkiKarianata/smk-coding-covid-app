@@ -43,7 +43,7 @@ class CountryFragment : Fragment() {
     private fun callApiGetCovidCountry() {
         showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
-        val apiRequest = apiRequest<CountryService>(httpClient)
+        val apiRequest = apiRequest<CountryService>(httpClient, "https://api.kawalcorona.com")
         val call = apiRequest.getCountry()
         call.enqueue(object : Callback<List<CovidCountryItem>> {
             override fun onFailure(call: Call<List<CovidCountryItem>>, t: Throwable) {

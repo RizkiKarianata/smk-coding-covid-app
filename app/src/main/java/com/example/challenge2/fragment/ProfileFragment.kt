@@ -8,9 +8,6 @@ import android.view.ViewGroup
 
 import com.example.challenge2.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class ProfileFragment : Fragment() {
 
     override fun onCreateView(
