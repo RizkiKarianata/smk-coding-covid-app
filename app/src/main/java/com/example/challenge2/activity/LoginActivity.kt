@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 )
                 startActivity(intent)
                 finish()
-            } else { //Jika gagal login
+            } else {
                 progress.visibility = View.GONE
                 Toast.makeText(
                     this, "Gagal Masuk",
