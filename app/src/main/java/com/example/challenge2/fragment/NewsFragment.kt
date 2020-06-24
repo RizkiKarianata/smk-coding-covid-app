@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.challenge2.R
-import android.widget.TextView
 import androidx.annotation.Nullable
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challenge2.adapter.NewsAdapter
 import com.example.challenge2.api.NewsService
 import com.example.challenge2.api.apiRequest
 import com.example.challenge2.api.httpClient
 import com.example.challenge2.item.Article
+import com.example.challenge2.item.NewsArticle
 import com.example.challenge2.util.dismissLoading
 import com.example.challenge2.util.showLoading
 import com.example.challenge2.util.tampilToast
@@ -44,26 +43,21 @@ class NewsFragment : Fragment() {
         showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
         val apiRequest = apiRequest<NewsService>(httpClient, "http://newsapi.org/")
-        val call = apiRequest.getNews()
-        call.enqueue(object : Callback<List<Article>> {
-            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
+        val call = apiRequest.getNews("id", "health", "bbee86a986db46bf80ff438b2af16712")
+        call.enqueue(object : Callback<NewsArticle> {
+            override fun onFailure(call: Call<NewsArticle>, t: Throwable) {
                 dismissLoading(swipeRefreshLayout)
             }
 
             override fun onResponse(
-                call: Call<List<Article>>, response:
-                Response<List<Article>>
+                call: Call<NewsArticle>, response:
+                Response<NewsArticle>
             ) {
                 dismissLoading(swipeRefreshLayout)
                 when {
-                    response.isSuccessful ->
-                        when {
-                            response.body()?.size != 0 ->
-                                tampilNews(response.body()!!)
-                            else -> {
-                                tampilToast(context!!, "Berhasil")
-                            }
-                        }
+                    response.isSuccessful -> {
+                        tampilNews(response.body()!!.articles)
+                    }
                     else -> {
                         tampilToast(context!!, "Gagal")
                     }

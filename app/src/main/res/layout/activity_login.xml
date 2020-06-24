@@ -9,6 +9,23 @@
     android:background="#fff"
     android:padding="20dp">
 
+    <ProgressBar
+        android:id ="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal ="true"
+        android:layout_centerVertical ="true"
+        android:layout_marginStart ="181dp"
+        android:layout_marginTop ="583dp"
+        android:layout_marginEnd ="182dp"
+        android:layout_marginBottom ="100dp"
+        app:layout_constraintBottom_toBottomOf ="parent"
+        app:layout_constraintEnd_toEndOf ="parent"
+        app:layout_constraintHorizontal_bias ="0.5"
+        app:layout_constraintStart_toStartOf ="parent"
+        app:layout_constraintTop_toTopOf ="parent"
+        tools:ignore ="MissingConstraints"/>
+
     <ImageView
         android:id="@+id/logo_image"
         android:layout_width="150dp"
@@ -102,7 +119,7 @@
                     tools:ignore="UselessParent">
 
                     <ImageView
-                        android:id="@+id/google"
+                        android:id="@+id/btnGoogleLogin"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:contentDescription="@string/logo_image"
@@ -156,7 +173,7 @@
                     tools:ignore="UselessParent">
 
                     <ImageView
-                        android:id="@+id/facebook"
+                        android:id="@+id/btnFacebookLogin"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:contentDescription="@string/logo_image"
