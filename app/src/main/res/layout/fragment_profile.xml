@@ -10,7 +10,7 @@
         android:id="@+id/rellay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/grad"
+        android:background="@color/color_death"
         android:paddingBottom="20dp">
 
         <RelativeLayout
@@ -56,7 +56,7 @@
             android:fontFamily="sans-serif"
             android:text="@string/malang_jawa_timur"
             android:textAllCaps="true"
-            android:textColor="@color/address"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
     </RelativeLayout>
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@color/followersBg"
+            android:background="@color/color_recovered"
             android:gravity="center"
             android:paddingBottom="5dp"
             android:paddingTop="5dp">
@@ -91,6 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
+                    android:textAllCaps="true"
                     android:text="@string/ubah"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
@@ -105,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@color/followingBg"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:paddingBottom="5dp"
             android:paddingTop="5dp">
@@ -121,6 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
+                    android:textAllCaps="true"
                     android:text="@string/keluar"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
@@ -156,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nama_lengkapp"
-                    android:textColor="@color/headings"
+                    android:textColor="@color/color_death"
                     android:textSize="13sp" />
 
                 <TextView
@@ -185,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/alamat_email"
-                    android:textColor="@color/headings"
+                    android:textColor="@color/color_death"
                     android:textSize="13sp" />
 
                 <TextView
@@ -214,7 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nomor_telepon"
-                    android:textColor="@color/headings"
+                    android:textColor="@color/color_death"
                     android:textSize="13sp" />
 
                 <TextView

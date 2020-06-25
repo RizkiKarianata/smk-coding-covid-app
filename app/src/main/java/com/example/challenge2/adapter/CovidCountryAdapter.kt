@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.challenge2.R
 import com.example.challenge2.item.CovidCountryItem
+import com.example.challenge2.session.SessionCountry
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.covid_country_item.*
 
@@ -31,7 +33,7 @@ List<CovidCountryItem>, private val listener : (CovidCountryItem)-> Unit) :
         fun bindItem(item: CovidCountryItem, listener: (CovidCountryItem) -> Unit) {
             txtCountryRegion.text = item.attributes.countryRegion
             txtLastUpdate.text = "Info Selengkapnya"
-            containerView.setOnClickListener { listener(item) }
+            card_data.setOnClickListener { listener(item) }
         }
     }
 }

@@ -18,11 +18,18 @@ import com.example.challenge2.item.CovidCountryItem
 import com.example.challenge2.util.dismissLoading
 import com.example.challenge2.util.showLoading
 import com.example.challenge2.util.tampilToast
+import com.example.challenge2.session.SessionCountry
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_country.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.content.Intent
+import android.util.DisplayMetrics
+import android.widget.ArrayAdapter
+import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.Glide
+import com.example.challenge2.activity.DetailCountryActivity
 
 class CountryFragment : Fragment() {
 
@@ -39,6 +46,7 @@ class CountryFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
         callApiGetCovidCountry()
+        SessionCountry.Session(context)
     }
     private fun callApiGetCovidCountry() {
         showLoading(context!!, swipeRefreshLayout)
@@ -74,7 +82,11 @@ class CountryFragment : Fragment() {
     private fun tampilCovidCountry(covCou: List<CovidCountryItem>) {
         listCovidCountry.layoutManager = LinearLayoutManager(context)
         listCovidCountry.adapter = CovidCountryAdapter(context!!, covCou) {
+            SessionCountry.Session(context)
             val covidCountry = it
+            SessionCountry["id"] = covidCountry.attributes.oBJECTID.toString()
+            val intent = Intent(context, DetailCountryActivity::class.java)
+            startActivity(intent)
             tampilToast(context!!, covidCountry.attributes.countryRegion)
         }
     }

@@ -24,4 +24,8 @@
     <color name="color_active">#FECE2F</color>
     <color name="color_confirmed">#F2B900</color>
     <color name="onyx">#101010</color>
+    <color name="list_blue">#42A5F5</color>
+
+    <color name="provincesStart">#F2F5D0</color>
+    <color name="provincesEnd">#F9957F</color>
 </resources>
