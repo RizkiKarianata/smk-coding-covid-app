@@ -36,17 +36,18 @@ class HomeFragment : Fragment() {
         callGlobalConfirmed()
         callGlobalRecovered()
         callGlobalDeath()
+        callCovidIndonesia()
     }
     @SuppressLint("ShowToast")
     fun callGlobalConfirmed() {
         val url = "https://api.kawalcorona.com/positif/"
         val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
             val jsonObject = JSONObject(it.toString())
-            konfirmasi_c.text = jsonObject.getString(("value"))
+            txtGlobalPositif.text = jsonObject.getString(("value"))
         },
             Response.ErrorListener {
                 Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
-                konfirmasi_c.text = "-"
+                txtGlobalPositif.text = "-"
             })
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(stringRequest)
@@ -56,11 +57,11 @@ class HomeFragment : Fragment() {
         val url = "https://api.kawalcorona.com/sembuh/"
         val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
             val jsonObject = JSONObject(it.toString())
-            sembuh_c.text = jsonObject.getString(("value"))
+            txtGlobalSembuh.text = jsonObject.getString(("value"))
         },
             Response.ErrorListener {
                 Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
-                sembuh_c.text = "-"
+                txtGlobalSembuh.text = "-"
             })
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(stringRequest)
@@ -70,11 +71,32 @@ class HomeFragment : Fragment() {
         val url = "https://api.kawalcorona.com/meninggal/"
         val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
             val jsonObject = JSONObject(it.toString())
-            mati_c.text = jsonObject.getString(("value"))
+            txtGlobalMeninggal.text = jsonObject.getString(("value"))
         },
             Response.ErrorListener {
                 Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
-                mati_c.text = "-"
+                txtGlobalMeninggal.text = "-"
+            })
+        val requestQueue = Volley.newRequestQueue(context)
+        requestQueue.add(stringRequest)
+    }
+    @SuppressLint("ShowToast")
+    fun callCovidIndonesia() {
+        val url = "https://covid19.mathdro.id/api/countries/Indonesia"
+        val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
+            val jsonObject = JSONObject(it)
+            val positif = jsonObject.getJSONObject("confirmed")
+            val sembuh = jsonObject.getJSONObject("recovered")
+            val meninggal = jsonObject.getJSONObject("deaths")
+            txtLokalPositif.text = positif.getString(("value"))
+            txtLokalSembuh.text = sembuh.getString(("value"))
+            txtLokalMeninggal.text = meninggal.getString(("value"))
+        },
+            Response.ErrorListener {
+                Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
+                txtLokalPositif.text = "-"
+                txtLokalSembuh.text = "-"
+                txtLokalMeninggal.text = "-"
             })
         val requestQueue = Volley.newRequestQueue(context)
         requestQueue.add(stringRequest)

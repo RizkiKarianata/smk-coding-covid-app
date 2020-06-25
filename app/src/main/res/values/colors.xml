@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#FECE2F</color>
     <color name="colorAccent">#4682B4</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
 
     <color name="address">#2F7092</color>
     <color name="followers">#0D5D98</color>
@@ -18,9 +19,9 @@
     <color name="white">#FFFFFF</color>
     <color name="purple">#4A47A7</color>
 
-    <color name="color_death">#F76353</color>
-    <color name="color_recovered">#00CC99</color>
-    <color name="color_active">#F2B900</color>
+    <color name="color_death">#FF0000</color>
+    <color name="color_recovered">#008000</color>
+    <color name="color_active">#FECE2F</color>
     <color name="color_confirmed">#F2B900</color>
     <color name="onyx">#101010</color>
 </resources>
