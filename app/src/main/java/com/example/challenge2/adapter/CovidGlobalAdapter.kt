@@ -1,6 +1,5 @@
 package com.example.challenge2.adapter
 
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,6 +12,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.example.challenge2.R
+import com.bumptech.glide.Glide
 import com.example.challenge2.item.CovidGlobal
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.covid_global_item.*
@@ -35,6 +35,9 @@ List<CovidGlobal>, private val listener : (CovidGlobal)-> Unit) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
         @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidGlobal, listener: (CovidGlobal) -> Unit) {
+            konfirmasi_c.text = item.confirmed.value.toString()
+            mati_c.text = item.deaths.value.toString()
+            sembuh_c.text = item.recovered.value.toString()
             val listPie = ArrayList<PieEntry>()
             val listColors = ArrayList<Int>()
             listPie.add(PieEntry(item.confirmed.value.toFloat(), "Positif"))

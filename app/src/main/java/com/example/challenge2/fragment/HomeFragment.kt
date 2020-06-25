@@ -1,28 +1,20 @@
 package com.example.challenge2.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.widget.Toast
 import android.view.View
 import android.view.ViewGroup
-import com.example.challenge2.R
-import android.widget.TextView
 import androidx.annotation.Nullable
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.challenge2.adapter.CovidGlobalAdapter
-import com.example.challenge2.api.GlobalService
-import com.example.challenge2.api.apiRequest
-import com.example.challenge2.api.httpClient
-import com.example.challenge2.item.CovidGlobal
-import com.example.challenge2.util.dismissLoading
-import com.example.challenge2.util.showLoading
-import com.example.challenge2.util.tampilToast
-import kotlinx.android.synthetic.*
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.example.challenge2.R
 import kotlinx.android.synthetic.main.fragment_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import org.json.JSONObject
 
 class HomeFragment : Fragment() {
 
@@ -38,49 +30,53 @@ class HomeFragment : Fragment() {
         @Nullable savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-        callApiGetCovidGlobal()
+        initView()
     }
-    private fun callApiGetCovidGlobal() {
-        showLoading(context!!, swipeRefreshLayout)
-        val httpClient = httpClient()
-        val apiRequest = apiRequest<GlobalService>(httpClient, "https://covid19.mathdro.id/")
-        val call = apiRequest.getGlobal()
-        call.enqueue(object : Callback<List<CovidGlobal>> {
-            override fun onFailure(call: Call<List<CovidGlobal>>, t: Throwable) {
-                dismissLoading(swipeRefreshLayout)
-            }
-
-            override fun onResponse(
-                call: Call<List<CovidGlobal>>, response:
-                Response<List<CovidGlobal>>
-            ) {
-                dismissLoading(swipeRefreshLayout)
-                when {
-                    response.isSuccessful ->
-                        when {
-                            response.body()?.size != 0 ->
-                                tampilCovidGlobal(response.body()!!)
-                            else -> {
-                                tampilToast(context!!, "Berhasil")
-                            }
-                        }
-                    else -> {
-                        tampilToast(context!!, "Gagal")
-                    }
-                }
-            }
-        })
+    private fun initView() {
+        callGlobalConfirmed()
+        callGlobalRecovered()
+        callGlobalDeath()
     }
-    private fun tampilCovidGlobal(covCou: List<CovidGlobal>) {
-        listGlobal.layoutManager = LinearLayoutManager(context)
-        listGlobal.adapter = CovidGlobalAdapter(context!!, covCou) {
-            val covidGlobal = it
-            tampilToast(context!!, covidGlobal.lastUpdate)
-        }
+    @SuppressLint("ShowToast")
+    fun callGlobalConfirmed() {
+        val url = "https://api.kawalcorona.com/positif/"
+        val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
+            val jsonObject = JSONObject(it.toString())
+            konfirmasi_c.text = jsonObject.getString(("value"))
+        },
+            Response.ErrorListener {
+                Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
+                konfirmasi_c.text = "-"
+            })
+        val requestQueue = Volley.newRequestQueue(context)
+        requestQueue.add(stringRequest)
     }
-    override fun onDestroy() {
-        super.onDestroy()
-        this.clearFindViewByIdCache()
+    @SuppressLint("ShowToast")
+    fun callGlobalRecovered() {
+        val url = "https://api.kawalcorona.com/sembuh/"
+        val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
+            val jsonObject = JSONObject(it.toString())
+            sembuh_c.text = jsonObject.getString(("value"))
+        },
+            Response.ErrorListener {
+                Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
+                sembuh_c.text = "-"
+            })
+        val requestQueue = Volley.newRequestQueue(context)
+        requestQueue.add(stringRequest)
     }
-
+    @SuppressLint("ShowToast")
+    fun callGlobalDeath() {
+        val url = "https://api.kawalcorona.com/meninggal/"
+        val stringRequest = StringRequest(Request.Method.GET, url, Response.Listener {
+            val jsonObject = JSONObject(it.toString())
+            mati_c.text = jsonObject.getString(("value"))
+        },
+            Response.ErrorListener {
+                Toast.makeText(context, "Kesalahan", Toast.LENGTH_SHORT)
+                mati_c.text = "-"
+            })
+        val requestQueue = Volley.newRequestQueue(context)
+        requestQueue.add(stringRequest)
+    }
 }
