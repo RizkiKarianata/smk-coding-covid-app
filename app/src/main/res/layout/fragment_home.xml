@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Global Data"
+        android:text="Data Keseluruhan"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
-            android:text="Indonesia"
+            android:text="Data Indonesia"
             android:gravity="center"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"/>
@@ -169,6 +169,16 @@
             </RelativeLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPerbarui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="10sp"/>
 
     </LinearLayout>
 
