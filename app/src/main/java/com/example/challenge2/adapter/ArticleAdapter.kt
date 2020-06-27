@@ -26,13 +26,18 @@ List<Article>, private val listener : (Article)-> Unit) :
         return items.size
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(items.get(position), listener)
+        holder.bindItem(items[position], listener)
     }
     class ViewHolder(val context : Context, override val containerView : View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
         @SuppressLint("SetTextI18n")
         fun bindItem(item: Article, listener: (Article) -> Unit) {
-            txtJudul.text = item.title
+            Glide.with(context).load(item.urlToImage).into(txtArticleImage)
+            txtAuthor.text = item.author
+            txtDescription.text = item.description
+            txtSource.text = item.source.name
+            txtTitle.text = item.title
+            txtPublishedAt.text = item.publishedAt
             containerView.setOnClickListener { listener(item) }
         }
     }

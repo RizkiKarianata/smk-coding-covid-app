@@ -57,13 +57,13 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/usernameLog"
+            android:id="@+id/emailLog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="@string/nama_pengguna"
             android:autofillHints=""
-            android:inputType="text" />
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/passwordLog"
@@ -173,7 +173,7 @@
                     tools:ignore="UselessParent">
 
                     <ImageView
-                        android:id="@+id/btnFacebookLogin"
+                        android:id="@+id/facebook_login_button"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:contentDescription="@string/logo_image"

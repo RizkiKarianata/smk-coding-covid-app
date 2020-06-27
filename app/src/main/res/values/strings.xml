@@ -38,4 +38,7 @@
     <string name="ubah">Ubah</string>
     <string name="keluar">Keluar</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="facebook_app_id">3039893086129593</string>
+    <string name="fb_login_protocol_scheme">fb3039893086129593</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.challenge2.item
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class NewsArticle(
     @SerializedName("articles")
@@ -10,4 +11,4 @@ data class NewsArticle(
     val status: String,
     @SerializedName("totalResults")
     val totalResults: Int
-)
+): Serializable

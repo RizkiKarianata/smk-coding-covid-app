@@ -27,11 +27,18 @@ import kotlinx.android.synthetic.main.activity_global_country.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.view.Window
+import android.view.WindowManager
 
 class GlobalCountryActivity : AppCompatActivity() {
 
 override fun onCreate(savedInstanceState: Bundle?) {
+    requestWindowFeature(Window.FEATURE_NO_TITLE)
     super.onCreate(savedInstanceState)
+    window.setFlags(
+        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        WindowManager.LayoutParams.FLAG_FULLSCREEN
+    )
     setContentView(R.layout.activity_global_country)
     SessionCountry.Session(this)
     callGlobalCovid()

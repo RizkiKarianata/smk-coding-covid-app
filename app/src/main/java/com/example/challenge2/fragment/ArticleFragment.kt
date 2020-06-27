@@ -15,6 +15,8 @@ import com.example.challenge2.api.ArticleService
 import com.example.challenge2.api.apiRequest
 import com.example.challenge2.api.httpClient
 import com.example.challenge2.item.Article
+import com.example.challenge2.item.NewsArticle
+import com.example.challenge2.session.SessionCountry
 import com.example.challenge2.util.dismissLoading
 import com.example.challenge2.util.showLoading
 import com.example.challenge2.util.tampilToast
@@ -25,6 +27,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ArticleFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,27 +47,25 @@ class ArticleFragment : Fragment() {
         callApiGetArticle()
     }
     private fun callApiGetArticle() {
+        showLoading(context!!, swipeRefreshLayout)
         val httpClient = httpClient()
-        val apiRequest = apiRequest<ArticleService>(httpClient, "https://newsapi.org")
-        val call = apiRequest.getArticle()
-        call.enqueue(object : Callback<List<Article>> {
-            override fun onFailure(call: Call<List<Article>>, t: Throwable) {
-                tampilToast(context!!, "Gagal")
+        val apiNewsRequest = apiRequest<ArticleService>(httpClient, "https://newsapi.org")
+        val call = apiNewsRequest.getArticle()
+        call.enqueue(object : Callback<NewsArticle> {
+            override fun onFailure(call: Call<NewsArticle>, t: Throwable) {
+                dismissLoading(swipeRefreshLayout)
+                tampilToast(context!!, "Gagal" + t.message)
             }
 
             override fun onResponse(
-                call: Call<List<Article>>, response:
-                Response<List<Article>>
+                call: Call<NewsArticle>, response:
+                Response<NewsArticle>
             ) {
+                dismissLoading(swipeRefreshLayout)
                 when {
-                    response.isSuccessful ->
-                        when {
-                            response.body()?.size != 0 ->
-                                tampilArticle(response.body()!!)
-                            else -> {
-                                tampilToast(context!!, "Berhasil")
-                            }
-                        }
+                    response.isSuccessful -> {
+                        tampilArticle(response.body()!!.articles)
+                    }
                     else -> {
                         tampilToast(context!!, "Gagal")
                     }
@@ -72,6 +76,7 @@ class ArticleFragment : Fragment() {
     private fun tampilArticle(covCou: List<Article>) {
         listArticleNewss.layoutManager = LinearLayoutManager(context)
         listArticleNewss.adapter = ArticleAdapter(context!!, covCou) {
+            SessionCountry.Session(context)
             val newsArticle = it
             tampilToast(context!!, newsArticle.title)
         }

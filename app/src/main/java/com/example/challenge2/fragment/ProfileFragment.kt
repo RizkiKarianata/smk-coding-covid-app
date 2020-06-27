@@ -9,13 +9,14 @@ import android.view.ViewGroup
 import androidx.annotation.Nullable
 
 import com.example.challenge2.R
+import com.example.challenge2.activity.EditProfileActivity
 import com.example.challenge2.activity.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var mAuth : FirebaseAuth
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,12 +30,18 @@ class ProfileFragment : Fragment() {
         @Nullable savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-        mAuth = FirebaseAuth.getInstance()
+        btnChangeAccount.setOnClickListener { redirectChangeAccount()}
+        auth = FirebaseAuth.getInstance()
         btnLogout.setOnClickListener {
-            mAuth.signOut()
-            val i = Intent(context, LoginActivity::class.java)
-            requireActivity().finish()
-            startActivity(i)
+            auth.signOut()
+            Intent(context, LoginActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(it)
+            }
         }
+    }
+    private fun redirectChangeAccount() {
+        val intent = Intent(context, EditProfileActivity::class.java)
+        startActivity(intent)
     }
 }
