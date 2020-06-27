@@ -7,16 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.challenge2.R
 import com.example.challenge2.item.Article
+import com.example.challenge2.session.SessionCountry
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.news_item.*
+import kotlinx.android.synthetic.main.article_item.*
+import java.util.*
 
-class NewsAdapter(private val context : Context, private val items :
+class ArticleAdapter(private val context : Context, private val items :
 List<Article>, private val listener : (Article)-> Unit) :
-    RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        ViewHolder(context, LayoutInflater.from(context).inflate(R.layout.news_item,
+        ViewHolder(context, LayoutInflater.from(context).inflate(
+            R.layout.article_item,
             parent, false))
     override fun getItemCount(): Int {
         return items.size
@@ -29,9 +33,6 @@ List<Article>, private val listener : (Article)-> Unit) :
         @SuppressLint("SetTextI18n")
         fun bindItem(item: Article, listener: (Article) -> Unit) {
             txtJudul.text = item.title
-            txtTanggal.text = item.publishedAt
-            txtDeskripsi.text = item.description
-            Glide.with(context).load(R.drawable.ic_bacteria2).into(imgArticle)
             containerView.setOnClickListener { listener(item) }
         }
     }

@@ -1,108 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-        <RelativeLayout
+    <androidx.cardview.widget.CardView
+        app:cardBackgroundColor="@color/color_death"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="10dp">
+
+        <View
+            android:layout_width="5dp"
+            android:background="@color/colorPrimary"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_data"
+            <TextView
+                android:gravity="end"
+                android:id="@+id/txtLastUpdate"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="@color/color_death"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="3dp">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold|italic"
+                tools:text="Last Update Date" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_covid_positif" />
+
+                <TextView
+                    android:id="@+id/txtCountryPositif"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp">
+                    android:layout_marginEnd="10dp"
+                    android:text="Positif"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="5dp"
-                        tools:ignore="UselessParent">
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_covid_sembuh" />
 
-                        <TextView
-                            android:id="@+id/txtCountryRegion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            tools:ignore="RelativeOverlap" />
+                <TextView
+                    android:id="@+id/txtCountrySembuh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="Sembuh"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
 
-                        <TextView
-                            android:id="@+id/txtLastUpdate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/txtCountryRegion"
-                            android:layout_marginStart="10dp"
-                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
+                <ImageView
+                    android:layout_width="21dp"
+                    android:layout_height="21dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_covid_meninggal" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginEnd="15dp"
-                            android:src="@drawable/ic_arrow"
-                            android:tint="@color/colorWhite"
-                            android:contentDescription="@string/logo_panah" />
+                <TextView
+                    android:id="@+id/txtCountryMeninggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meninggal"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
 
-                    </RelativeLayout>
+            </LinearLayout>
 
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="start|center"
-            android:layout_marginStart="-8dp"
-            android:background="@drawable/ic_circle_white"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txtCountryNegara"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/kiri" />
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Country" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="end|center"
-            android:layout_marginEnd="-8dp"
-            android:background="@drawable/ic_circle_white"
-            android:gravity="center">
+    </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/kanan" />
-
-        </LinearLayout>
-
-    </FrameLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

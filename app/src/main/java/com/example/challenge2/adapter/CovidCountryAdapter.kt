@@ -13,6 +13,7 @@ import com.example.challenge2.item.CovidCountryItem
 import com.example.challenge2.session.SessionCountry
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.covid_country_item.*
+import java.util.*
 
 class CovidCountryAdapter(private val context : Context, private val items :
 List<CovidCountryItem>, private val listener : (CovidCountryItem)-> Unit) :
@@ -31,9 +32,13 @@ List<CovidCountryItem>, private val listener : (CovidCountryItem)-> Unit) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
         @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidCountryItem, listener: (CovidCountryItem) -> Unit) {
-            txtCountryRegion.text = item.attributes.countryRegion
-            txtLastUpdate.text = "Info Selengkapnya"
-            card_data.setOnClickListener { listener(item) }
+            val date = Date(item.attributes.lastUpdate)
+            txtCountryNegara.text = item.attributes.countryRegion
+            txtCountryPositif.text = item.attributes.confirmed.toString()
+            txtCountrySembuh.text = item.attributes.recovered.toString()
+            txtCountryMeninggal.text = item.attributes.deaths.toString()
+            txtLastUpdate.text = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date)
+            containerView.setOnClickListener { listener(item) }
         }
     }
 }

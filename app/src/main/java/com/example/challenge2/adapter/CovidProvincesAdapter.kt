@@ -11,6 +11,7 @@ import com.example.challenge2.R
 import com.example.challenge2.item.CovidProvincesItem
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.covid_provinces_item.*
+import java.util.*
 
 class CovidProvincesAdapter(private val context : Context, private val items :
 List<CovidProvincesItem>, private val listener : (CovidProvincesItem)-> Unit) :
@@ -28,8 +29,11 @@ List<CovidProvincesItem>, private val listener : (CovidProvincesItem)-> Unit) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
         @SuppressLint("SetTextI18n")
         fun bindItem(item: CovidProvincesItem, listener: (CovidProvincesItem) -> Unit) {
-            txtProvinces.text = item.attributes.provinsi
-            txtKode.text = "Info Selengkapnya"
+            txtKodeProvinsi.text = "Kode Provinsi " + item.attributes.kodeProvi
+            txtProvincesMeninggal.text = item.attributes.kasusMeni.toString()
+            txtProvincesSembuh.text = item.attributes.kasusSemb.toString()
+            txtProvincesPositif.text = item.attributes.kasusPosi.toString()
+            txtProvincesCovid.text = item.attributes.provinsi
             containerView.setOnClickListener { listener(item) }
         }
     }

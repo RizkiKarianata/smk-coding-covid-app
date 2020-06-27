@@ -15,7 +15,7 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
             0 -> { return HomeFragment() }
             1 -> { return CountryFragment() }
             2 -> { return ProvincesFragment() }
-            3 -> { return NewsFragment() }
+            3 -> { return ArticleFragment() }
             4 -> { return ProfileFragment() }
             else -> {
                 return HomeFragment()

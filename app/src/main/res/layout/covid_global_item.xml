@@ -1,71 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
+    android:layout_height="wrap_content">
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/pieChart"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"/>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/konfirmasi_c"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_global"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="134512"
-                android:textSize="20dp" />
+                android:layout_height="60dp"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/color_death"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="3dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Konfirmasi"
-                android:textColor="@color/color_confirmed"
-                android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp">
 
-            <TextView
-                android:id="@+id/sembuh_c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="134512"
-                android:textSize="20dp" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        tools:ignore="UselessParent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sembuh"
-                android:textColor="@color/color_recovered"
-                android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/txtGlobal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            tools:ignore="RelativeOverlap" />
 
-            <TextView
-                android:id="@+id/mati_c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="134512"
-                android:textSize="20dp" />
+                        <TextView
+                            android:id="@+id/txtInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txtGlobal"
+                            android:layout_marginStart="10dp"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="match_parent"
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="15dp"
+                            android:src="@drawable/ic_arrow"
+                            android:tint="@color/colorWhite"
+                            android:contentDescription="@string/logo_panah" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="-8dp"
+            android:background="@drawable/ic_circle_white"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kematian"
-                android:textColor="@color/color_death"
-                android:textStyle="bold" />
+                android:contentDescription="@string/kiri" />
+
         </LinearLayout>
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="-8dp"
+            android:background="@drawable/ic_circle_white"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/kanan" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 </androidx.cardview.widget.CardView>

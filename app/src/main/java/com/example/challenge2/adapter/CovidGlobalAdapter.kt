@@ -7,19 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.data.PieData
-import com.github.mikephil.charting.data.PieDataSet
-import com.github.mikephil.charting.data.PieEntry
-import com.example.challenge2.R
 import com.bumptech.glide.Glide
-import com.example.challenge2.item.CovidGlobal
+import com.bumptech.glide.request.RequestOptions
+import com.example.challenge2.R
+import com.example.challenge2.item.GlobalCovidItem
+import com.example.challenge2.session.SessionCountry
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.covid_global_item.*
 import java.util.*
 
 class CovidGlobalAdapter(private val context : Context, private val items :
-List<CovidGlobal>, private val listener : (CovidGlobal)-> Unit) :
+List<GlobalCovidItem>, private val listener : (GlobalCovidItem)-> Unit) :
     RecyclerView.Adapter<CovidGlobalAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(context, LayoutInflater.from(context).inflate(
@@ -34,33 +32,15 @@ List<CovidGlobal>, private val listener : (CovidGlobal)-> Unit) :
     class ViewHolder(val context : Context, override val containerView : View) :
         RecyclerView.ViewHolder(containerView), LayoutContainer{
         @SuppressLint("SetTextI18n")
-        fun bindItem(item: CovidGlobal, listener: (CovidGlobal) -> Unit) {
-            konfirmasi_c.text = item.confirmed.value.toString()
-            mati_c.text = item.deaths.value.toString()
-            sembuh_c.text = item.recovered.value.toString()
-            val listPie = ArrayList<PieEntry>()
-            val listColors = ArrayList<Int>()
-            listPie.add(PieEntry(item.confirmed.value.toFloat(), "Positif"))
-            listColors.add(ContextCompat.getColor(context, R.color.color_active))
-            listPie.add(PieEntry(item.recovered.value.toFloat(), "Sembuh"))
-            listColors.add(ContextCompat.getColor(context, R.color.color_recovered))
-            listPie.add(PieEntry(item.deaths.value.toFloat(), "Meninggal"))
-            listColors.add(ContextCompat.getColor(context, R.color.color_death))
-
-            val dataSet = PieDataSet(listPie, "")
-            dataSet.colors = listColors
-            val pieData = PieData(dataSet)
-            pieData.setValueTextSize(14F)
-            pieChart.apply {
-                data = pieData
-                setUsePercentValues(true)
-                isDrawHoleEnabled = false
-                description.isEnabled = false
-                setEntryLabelColor(R.color.onyx)
-                setEntryLabelTextSize(8F)
-                animateY(1400, Easing.EaseInOutQuad)
-                setDrawEntryLabels(false)
+        fun bindItem(item: GlobalCovidItem, listener: (GlobalCovidItem) -> Unit) {
+            val provinces = if (item.provinceState.isNullOrEmpty()) {
+                ""
+            } else {
+                " (${item.provinceState})"
             }
+            val date = Date(item.lastUpdate)
+            txtGlobal.text = item.countryRegion + provinces
+            txtInfo.text = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date)
             containerView.setOnClickListener { listener(item) }
         }
     }

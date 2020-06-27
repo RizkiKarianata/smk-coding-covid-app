@@ -16,6 +16,6 @@ object SessionCountry {
     }
 
     operator fun get(key: String?): String? {
-        return prefs!!.getString(key, "0")
+        return prefs!!.getString(key, "Indonesia")
     }
 }

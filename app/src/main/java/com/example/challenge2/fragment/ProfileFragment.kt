@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var mAuth : FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,9 +29,9 @@ class ProfileFragment : Fragment() {
         @Nullable savedInstanceState: Bundle?
     ) {
         super.onViewCreated(view, savedInstanceState)
-        val auth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
         btnLogout.setOnClickListener {
-            auth.signOut()
+            mAuth.signOut()
             val i = Intent(context, LoginActivity::class.java)
             requireActivity().finish()
             startActivity(i)
