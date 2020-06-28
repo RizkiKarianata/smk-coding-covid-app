@@ -7,18 +7,17 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * Configure Android Studio
 * Open Android Studio
 
-# Screenshoot Aplication
-Tampilan Awal
+# Tampilan Awal
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_071731.png)
-Halaman Masuk dan Daftar
+# Halaman Masuk dan Daftar
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_071518.png)
-Halaman Masuk Menggunakan Google dan Facebook
+# Halaman Masuk Menggunakan Google dan Facebook
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_071547.png)
-Halaman Beranda dan Akun
+# Halaman Beranda dan Akun
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_070856.png)
-Halaman Info Covid Negara dan Provinsi
+# Halaman Info Covid Negara dan Provinsi
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_070920.png)
-Halaman Info Covid Negara (Provinsi) dan Detail
+# Halaman Info Covid Negara (Provinsi) dan Detail
 ![Alt text](app/src/main/res/drawable/HiShoot_20200628_071653.png)
 
 # Documentation & Resources
