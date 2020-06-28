@@ -93,7 +93,12 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         var credential = FacebookAuthProvider.getCredential(result?.accessToken?.token!!)
         FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener { task ->
             if(task.isSuccessful) {
-                println("Facebook  Login Success")
+                Intent(this, MainActivity::class.java).also {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(it)
+                }
+            }else {
+                tampilToast("Gagal Masuk")
             }
         }
     }
