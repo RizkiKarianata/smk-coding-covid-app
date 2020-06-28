@@ -7,40 +7,67 @@ import android.util.Patterns
 import com.example.challenge2.R
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
+import com.example.challenge2.model.UsersModel
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
+    private lateinit var namec : EditText
+    private lateinit var usernamec : EditText
+    private lateinit var emailc : EditText
+    private lateinit var telephonec : EditText
+    private lateinit var addressc : EditText
+    private lateinit var passwordc : EditText
+    private lateinit var btnRegisterc : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_register)
+        namec = findViewById(R.id.nameReg)
+        usernamec = findViewById(R.id.usernameReg)
+        emailc = findViewById(R.id.emailReg)
+        telephonec = findViewById(R.id.telephoneReg)
+        addressc = findViewById(R.id.addressReg)
+        passwordc = findViewById(R.id.passwordReg)
+        btnRegisterc = findViewById(R.id.btnRegisterCovid)
+
+
         btnLoginCovid.setOnClickListener { navigationToLoginActivity() }
         auth = FirebaseAuth.getInstance()
 
-        btnRegisterCovid.setOnClickListener {
-            val namec = nameReg.text.toString().trim()
-            val usernamec = usernameReg.text.toString().trim()
-            val emailc = emailReg.text.toString().trim()
-            val telephonec = telephoneReg.text.toString().trim()
-            val addressc = addressReg.text.toString().trim()
-            val passwordc = passwordReg.text.toString().trim()
+        btnRegisterc.setOnClickListener {
+            val name = namec.text.toString().trim()
+            val username = usernamec.text.toString().trim()
+            val email = emailc.text.toString().trim()
+            val telephone = telephonec.text.toString().trim()
+            val address = addressc.text.toString().trim()
+            val password = passwordc.text.toString().trim()
             when {
-                namec.isEmpty() -> nameReg.error = "Nama Lengkap harus diisi"
-                usernamec.isEmpty() -> usernameReg.error = "Nama Pengguna harus diisi"
-                emailc.isEmpty() -> emailReg.error = "Alamat Email harus diisi"
-                !Patterns.EMAIL_ADDRESS.matcher(emailc).matches() -> emailReg.error = "Alamat Email tidak lengkap"
-                telephonec.isEmpty() -> telephoneReg.error = "Nomor Telepon harus diisi"
-                addressc.isEmpty() -> addressReg.error = "Alamat harus diisi"
-                passwordc.isEmpty() -> passwordReg.error = "Kata Sandi harus diisi"
-                passwordc.length < 6 -> passwordReg.error = "Kata sandi harus lebih dari 6 karakter"
+                name.isEmpty() -> namec.error = "Nama Lengkap harus diisi"
+                username.isEmpty() -> usernamec.error = "Nama Pengguna harus diisi"
+                email.isEmpty() -> emailc.error = "Alamat Email harus diisi"
+                !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> emailc.error = "Alamat Email tidak lengkap"
+                telephone.isEmpty() -> telephonec.error = "Nomor Telepon harus diisi"
+                address.isEmpty() -> addressc.error = "Alamat harus diisi"
+                password.isEmpty() -> passwordc.error = "Kata Sandi harus diisi"
+                password.length < 6 -> passwordc.error = "Kata sandi harus lebih dari 6 karakter"
                 else -> {
-                    registerUser(emailc, passwordc)
+                    val ref = FirebaseDatabase.getInstance().getReference("user")
+                    val userId = ref.push().key
+                    val users = UsersModel(userId, name, username, email, telephone, password, address)
+                    if (userId != null) {
+                        ref.child(userId).setValue(users).addOnCompleteListener {
+                            registerUser(email, password)
+                        }
+                    }
                 }
             }
         }
