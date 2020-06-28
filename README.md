@@ -1,5 +1,5 @@
 # Challenge 2
-Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobile yang menggunakan Android Kotlin. Aplikasi ini saya beri nama Covid-18 yang berguna untuk memantau perkembangan corona virus di seluruh dunia.
+Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobile yang menggunakan Android Kotlin. Aplikasi ini saya beri nama Covid-19 yang berguna untuk memantau perkembangan corona virus di seluruh dunia.
 
 # Usage
 * Install Java SE Development Kit
@@ -7,8 +7,18 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * Configure Android Studio
 * Open Android Studio
 
-# Screenshoot Aplication
-![Alt text](app/src/main/res/drawable/screenshoot2.jpg)
+# Tampilan Awal
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_071731.png)
+# Halaman Masuk dan Daftar
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_071518.png)
+# Halaman Masuk Menggunakan Google dan Facebook
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_071547.png)
+# Halaman Beranda dan Akun
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_070856.png)
+# Halaman Info Covid Negara dan Provinsi
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_070920.png)
+# Halaman Info Covid Negara (Provinsi) dan Detail
+![Alt text](app/src/main/res/drawable/HiShoot_20200628_071653.png)
 
 # Documentation & Resources
 * [Android Studio Documentation](https://developer.android.com/docs)
@@ -16,8 +26,7 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * [Kotlin Forum](https://kotlinlang.org/community/)
 
 # Download Application
-* [Covid-19 via Google Drive](https://drive.google.com/file/d/103ymq_mZxcJqMXjvD8eFkcI2AauaAF_m/view?usp=sharing)
-* [Covid-19 via Mediafire](http://www.mediafire.com/file/7gavlxbeg2y8zva/app-debug.apk/file)
+* [Covid-19 via Google Drive](https://drive.google.com/file/d/1xeCvPF5YTXoJaIeh30ctP3WyoAXK6LOc/view?usp=sharing)
 
 # License
 MIT License 2020, Rizki Karianata.
