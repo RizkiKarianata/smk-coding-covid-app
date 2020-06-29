@@ -17,7 +17,8 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var auth : FirebaseAuth
+    private val mRef = FirebaseDatabase.getInstance()
+    private val mAuth = FirebaseAuth.getInstance()
     private lateinit var namec : EditText
     private lateinit var usernamec : EditText
     private lateinit var emailc : EditText
@@ -41,7 +42,6 @@ class RegisterActivity : AppCompatActivity() {
 
 
         btnLoginCovid.setOnClickListener { navigationToLoginActivity() }
-        auth = FirebaseAuth.getInstance()
 
         btnRegisterc.setOnClickListener {
             val name = namec.text.toString().trim()
@@ -60,15 +60,37 @@ class RegisterActivity : AppCompatActivity() {
                 password.isEmpty() -> passwordc.error = "Kata Sandi harus diisi"
                 password.length < 6 -> passwordc.error = "Kata sandi harus lebih dari 6 karakter"
                 else -> {
-                    val ref = FirebaseDatabase.getInstance().getReference("user")
-                    val userId = ref.push().key
-                    val users = UsersModel(userId, name, username, email, telephone, password, address)
-                    if (userId != null) {
-                        ref.child(userId).setValue(users).addOnCompleteListener {
-                            registerUser(email, password)
+                    mAuth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(this) {
+                            if(it.isSuccessful) {
+                                val uid = mAuth.currentUser!!.uid
+                                tampilToast("Berhasil Mendaftar")
+                                simpanData(uid)
+                            }else {
+                                tampilToast("Gagal Mendaftar")
+                            }
                         }
-                    }
                 }
+            }
+        }
+    }
+    private fun simpanData(uid: String) {
+        val db = mRef.getReference("users/$uid")
+        val name = namec.text.toString()
+        val username = usernamec.text.toString()
+        val email = emailc.text.toString()
+        val telephone = telephonec.text.toString()
+        val address = addressc.text.toString()
+        val password = passwordc.text.toString()
+        val user = UsersModel(uid, name, username, email, telephone, password, address)
+        db.setValue(user).addOnCompleteListener {
+            if (it.isSuccessful) {
+                Intent(this, LoginActivity::class.java).also {
+                    it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(it)
+                }
+            } else {
+                tampilToast("Gagal Mendaftar")
             }
         }
     }
@@ -79,22 +101,9 @@ class RegisterActivity : AppCompatActivity() {
     private fun tampilToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-    private fun registerUser(emailc: String, passwordc: String) {
-        auth.createUserWithEmailAndPassword(emailc,passwordc)
-            .addOnCompleteListener(this) {
-                if(it.isSuccessful) {
-                    Intent(this, MainActivity::class.java).also {
-                        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(it)
-                    }
-                }else {
-                    tampilToast("Gagal Mendaftar")
-                }
-            }
-    }
     override fun onStart() {
         super.onStart()
-        if(auth.currentUser != null) {
+        if(mAuth.currentUser != null) {
             Intent(this, MainActivity::class.java).also {
                 it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(it)

@@ -23,6 +23,10 @@ import com.facebook.login.LoginResult
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseUser
+import com.example.challenge2.model.UsersModel
+import com.example.challenge2.session.SessionData
 import kotlinx.android.synthetic.main.activity_login.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -123,14 +127,20 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         auth.signInWithEmailAndPassword(emails, passwords)
             .addOnCompleteListener(this) {
                 if(it.isSuccessful) {
-                    Intent(this, MainActivity::class.java).also {
-                        it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(it)
-                    }
+                    val dt = FirebaseAuth.getInstance().currentUser
+                    masukDB(dt)
                 }else {
                     tampilToast("Gagal Masuk")
                 }
             }
+    }
+    private fun masukDB(user: FirebaseUser?) {
+        SessionData.session(this)
+        SessionData["UserData"] = user!!.uid
+        Intent(this, MainActivity::class.java).also {
+            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(it)
+        }
     }
     override fun onStart() {
         super.onStart()
