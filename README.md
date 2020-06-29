@@ -26,8 +26,8 @@ Challenge 2 merupakan tugas kedua dari pelatihan SMK Coding Online berbasis Mobi
 * [Kotlin Forum](https://kotlinlang.org/community/)
 
 # Download Application
-* [Covid-19 via Google Drive](https://drive.google.com/file/d/1J4titZQtg2JrnAVdl9tIKQPU5eVJSOnF/view?usp=sharing)
-* [Covid-19 via Mediafire](http://www.mediafire.com/file/f2o8v76ocwbj3mz/Covid-19.apk/file)
+* [Covid-19 via Google Drive](https://drive.google.com/file/d/15t2vKfhhLhgK_50jhlADyBOyQjBJr5vY/view?usp=sharing)
+* [Covid-19 via Mediafire](https://www.mediafire.com/file/u64hx0hvnfyf49a/Covid-19.apk/file)
 
 # License
 MIT License 2020, Rizki Karianata.
