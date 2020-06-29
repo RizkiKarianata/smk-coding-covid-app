@@ -17,7 +17,7 @@
         android:layout_marginBottom="20dp">
 
         <EditText
-            android:id="@+id/nameReg"
+            android:id="@+id/nameEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -26,7 +26,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/usernameReg"
+            android:id="@+id/usernameEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -35,16 +35,17 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/emailReg"
+            android:id="@+id/emailEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:hint="@string/alamat_email"
+            android:enabled="false"
             android:inputType="textEmailAddress"
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/telephoneReg"
+            android:id="@+id/telephoneEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -53,7 +54,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/addressReg"
+            android:id="@+id/addressEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -61,29 +62,15 @@
             android:inputType="text"
             android:autofillHints="" />
 
-        <EditText
-            android:id="@+id/passwordReg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/kata_sandi"
-            android:inputType="textPassword"
-            android:autofillHints="" />
-
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnRegisterCovid"
+        android:id="@+id/btnUpdateCovid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/daftar"
-        android:background="#000"
-        android:textColor="#fff"/>
+        android:text="Simpan"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"/>
 
-    <Button
-        android:id="@+id/btnLoginCovid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/kembali"
-        android:background="#00000000"/>
 
 </LinearLayout>
