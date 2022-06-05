@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to the SMK Coding Covid App! 👋 </h1>
+<h1 align="center">Welcome to SMK Coding Covid App! 👋 </h1>
 
 ![SMK Coding Covid App](https://user-images.githubusercontent.com/52366240/172044068-9345db33-f0cc-4e2b-a017-a0b52ce3e178.png)
 
